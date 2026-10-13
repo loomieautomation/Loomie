@@ -201,8 +201,8 @@ dialog[open]{animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}dialog::backdrop{back
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
 // 1. Paste your values from Supabase: Project Settings -> API
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://vkeqqmklgbaaxcccrkwt.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZXFxbWtsZ2JhYXhjY2Nya3d0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4Njk0MjcsImV4cCI6MjEwNzQ0NTQyN30.k-NTo9uLglIQblmbL9SFul-0AMy7-7fKUjG0j0ujZiQ";
 // 2. Options
 const ALLOW_SIGNUP = true;    // false = invite-only (hides "Create account")
 const ENABLE_GOOGLE = false;  // true only after enabling Google in Supabase -> Authentication -> Providers
