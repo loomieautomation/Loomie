@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loomie | AI automation for small and medium-sized businesses</title>
+<meta name="description" content="Loomie automates repetitive work so tasks that take hours take minutes, without changing the tools you already use.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#07130F;--g:#0F6E56;--mint:#6EF3C0;--cream:#F5F2EA;--t:#0E2A25;--m:#3E534D}
+*{box-sizing:border-box}html{scroll-behavior:smooth}[hidden]{display:none!important}
+body{margin:0;font:17px/1.65 'Instrument Sans',system-ui,sans-serif;color:var(--t);background:var(--cream)}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.05;letter-spacing:-.03em;margin:0}
+a{color:inherit}.w{max-width:1120px;margin:0 auto;padding:0 24px}
+.eb{font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);margin:0 0 16px}
+nav{position:fixed;inset:0 0 auto;z-index:9;transition:background .3s}nav.s{background:rgba(7,19,15,.88);backdrop-filter:blur(12px)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font:700 26px 'Bricolage Grotesque',sans-serif;color:#fff;text-decoration:none}.logo i{color:var(--mint);font-style:normal}
+.nl{display:flex;gap:28px;align-items:center}.nl a:not(.btn){color:#cfe3dc;text-decoration:none;font-size:15px}.nl a:not(.btn):hover{color:#fff}
+.btn{display:inline-block;padding:14px 26px;border-radius:99px;background:var(--mint);color:var(--ink)!important;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(110,243,192,.35)}.btn.o{background:transparent;color:#fff!important;border:1px solid rgba(255,255,255,.3)}
+.hero{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:150px 0 110px}
+.glow{position:absolute;inset:0;background:radial-gradient(620px circle at var(--x,72%) var(--y,30%),rgba(110,243,192,.17),transparent 60%)}
+.th{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.th path{fill:none;stroke:var(--mint);stroke-width:1;stroke-dasharray:5 15;animation:fl 20s linear infinite}
+.th path:nth-child(2n){animation-duration:30s;opacity:.6}.th path:nth-child(3n){animation-direction:reverse}
+@keyframes fl{to{stroke-dashoffset:-400}}
+.hero .w{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,6.6vw,88px)}.hero h1 em{font-style:normal;color:var(--mint)}
+.hero p.lead{color:#b9d1c9;font-size:20px;max-width:520px;margin:26px 0 38px}.hero .bt{display:flex;gap:14px;flex-wrap:wrap}
+.pn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:30px;backdrop-filter:blur(10px);animation:fy 7s ease-in-out infinite}
+@keyframes fy{50%{transform:translateY(-12px)}}
+.pn small{color:#8fb1a6;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.r{margin-top:24px}.r div{display:flex;justify-content:space-between;font-size:15px;margin-bottom:9px}.r b{color:var(--mint);font-weight:600}
+.bar{height:9px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}
+.bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--g),var(--mint));border-radius:9px;animation:sh 6s cubic-bezier(.7,0,.2,1) infinite}
+@keyframes sh{0%,10%{width:100%}42%,88%{width:var(--to)}100%{width:100%}}
+.mq{background:var(--mint);color:var(--ink);overflow:hidden;white-space:nowrap;padding:20px 0;font:600 24px 'Bricolage Grotesque',sans-serif}
+.mq div{display:inline-block;animation:mq 30s linear infinite}.mq span{margin:0 30px}.mq span:after{content:"\2726";margin-left:60px;opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sec{padding:112px 0}.sec h2{font-size:clamp(34px,4.6vw,58px);max-width:760px}
+.ab{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:start}.ab p{color:var(--m);font-size:19px;margin:22px 0 0}
+.ask{font:600 clamp(22px,2.6vw,30px)/1.25 'Bricolage Grotesque',sans-serif;color:var(--t)!important;letter-spacing:-.02em;margin-top:34px!important}
+.fc{background:#fff;border:1px solid #dcd8cc;border-radius:20px;padding:26px;margin-bottom:16px;transition:transform .3s,box-shadow .3s}
+.fc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,42,37,.1)}
+.fc b{display:block;font:700 40px 'Bricolage Grotesque',sans-serif;color:var(--g);letter-spacing:-.03em}.fc span{color:var(--m);font-size:15px}
+.dk{background:var(--ink);color:#fff}.dk .eb{color:var(--mint)}
+.tabs{display:grid;grid-template-columns:300px 1fr;gap:36px;margin-top:52px}.tl{display:flex;flex-direction:column;gap:10px}
+.tl button{text-align:left;padding:18px 22px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:transparent;font:600 17px 'Instrument Sans',sans-serif;color:#cfe3dc;cursor:pointer;transition:all .25s}
+.tl button:hover{border-color:var(--mint)}.tl button[aria-pressed=true]{background:var(--mint);color:var(--ink);border-color:var(--mint);transform:translateX(10px)}
+.tp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:46px;animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(16px)}}
+.tp h3{font-size:36px;color:var(--mint);margin-bottom:22px}.tp p{font-size:19px;color:#dcebe6;margin:0}.tp mark{background:rgba(110,243,192,.18);color:var(--mint);padding:0 6px;border-radius:6px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.st{background:#fff;border:1px solid #dcd8cc;border-radius:22px;padding:34px}.st b{font:700 64px 'Bricolage Grotesque',sans-serif;color:var(--mint);-webkit-text-stroke:1.5px var(--g);letter-spacing:-.04em}
+.st h3{font-size:25px;margin:8px 0 10px}.st p{margin:0;color:var(--m)}
+.cta{background:var(--g);color:#fff;text-align:center;padding:110px 0}.cta h2{margin:0 auto 34px;color:#fff}
+.cta .btn{background:#fff;font-size:18px;padding:18px 36px}
+footer{background:var(--ink);color:#8fb1a6;text-align:center;padding:36px 24px;font-size:14px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s}.rv.on{opacity:1;transform:none}
+@media(max-width:860px){.hero .w,.ab,.tabs,.steps{grid-template-columns:1fr}.hm{display:none}.nl{gap:16px}.tp{padding:30px}.sec{padding:80px 0}.tl button[aria-pressed=true]{transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.nl .btn{padding:11px 20px;font-size:15px}
+dialog{border:0;padding:0;border-radius:26px;width:min(780px,calc(100% - 24px));max-height:calc(100dvh - 24px);background:#fff;color:var(--t);box-shadow:0 40px 120px rgba(0,0,0,.45);overflow:auto}
+dialog[open]{animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}dialog::backdrop{background:rgba(7,19,15,.72);backdrop-filter:blur(6px)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97)}}body:has(dialog[open]){overflow:hidden}
+.bk{position:relative;padding:40px 40px calc(36px + env(safe-area-inset-bottom))}.bk h2{font-size:clamp(28px,4vw,38px);margin-bottom:10px;padding-right:48px}
+.bk-x{position:absolute;top:14px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:#eef2f0;font-size:26px;cursor:pointer;color:var(--t)}
+.bk-sub{color:var(--m);margin:0 0 22px}.bk-g{display:grid;grid-template-columns:1fr 1fr;gap:16px}.bk-g .full{grid-column:1/-1}
+.bk label{display:block;font-size:14px;font-weight:600}
+.bk input{display:block;width:100%;margin-top:6px;padding:14px;font:inherit;font-size:16px;border:1px solid #bfd0ca;border-radius:12px;background:#fff;color:var(--t)}.bk input:focus{outline:2px solid var(--g);outline-offset:1px}
+.bk .btn{background:var(--g);color:#fff!important;border:0;font:600 17px 'Instrument Sans',sans-serif;cursor:pointer;padding:16px 30px}.bk .btn.full{width:100%}.bk .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.bk-e{color:#B3261E;font-size:15px;margin:0}.bk-two{display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+.bk-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.bk-h b{font-size:18px}
+.bk-h button{width:44px;height:44px;border-radius:50%;border:1px solid #cfd8d3;background:#fff;font-size:24px;cursor:pointer}.bk-h button:disabled{opacity:.3;cursor:default}
+.bk-w,.bk-d{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.bk-w span{font-size:12px;font-weight:600;color:#6B7F79;padding:6px 0}
+.bk-d button,.bk-s button{border:1px solid transparent;border-radius:12px;font:600 16px 'Instrument Sans',sans-serif;cursor:pointer;color:var(--t);transition:background .15s,color .15s}
+.bk-d button{min-height:44px;background:#eaf5f0}.bk-d .off{background:transparent;color:#b5c1bc;cursor:default}.bk-d .full{background:#f3f1ea;color:#b5c1bc;text-decoration:line-through;cursor:not-allowed}
+.bk-s{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-height:350px;overflow:auto;padding:2px}.bk-s button{padding:13px 4px;background:#fff;border-color:#bfd0ca}
+.bk-s .x{background:#f3f1ea;color:#aab6b1;border-color:transparent;text-decoration:line-through;cursor:not-allowed}
+.bk-d button.ok:hover,.bk-s button:not(.x):hover{background:var(--mint)}.bk-d .on,.bk-s .on,.bk-d .on:hover,.bk-s .on:hover{background:var(--g);color:#fff;border-color:var(--g)}
+.hint{color:var(--m);margin:0}.bk-pick{font-weight:600;color:var(--g);margin:22px 0 6px;min-height:26px}
+.bk-bt{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}.bk-bk{background:none;border:0;font:inherit;color:var(--m);cursor:pointer;padding:12px 0}
+.bk-done{text-align:center}.tick{width:80px;height:80px;margin:6px auto 20px;border-radius:50%;background:var(--g);color:#fff;font-size:40px;line-height:80px;animation:pop .6s}.bk-done p{color:var(--m)}
+@media(max-width:860px){.hero{padding:118px 0 80px}.hero .bt .btn{flex:1;text-align:center}.mq{font-size:20px}.cta{padding:80px 0}.fc b{font-size:34px}.nl a:not(.btn){font-size:14px}.tp h3{font-size:28px}}
+@media(max-width:640px){dialog{width:100%;max-width:100%;height:100dvh;max-height:100dvh;border-radius:0}.bk{padding:26px 18px calc(28px + env(safe-area-inset-bottom))}.bk-g,.bk-two{grid-template-columns:1fr}.bk-s{grid-template-columns:repeat(4,1fr);max-height:none}.bk-bt{flex-direction:column-reverse;align-items:stretch}.bk-bt .btn{width:100%}}
+@media(max-width:520px){#nav-signup{display:none}}
+@media(max-width:380px){.logo{font-size:22px}.nl{gap:10px}.nl .btn{padding:10px 14px}}
+@media(hover:none){.btn:hover,.fc:hover{transform:none;box-shadow:none}}
+
+#au{width:min(940px,calc(100% - 24px))}.au{display:grid;grid-template-columns:.8fr 1.2fr;min-height:580px}
+.au-l{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between}.au-l>*{position:relative}.au-l .th{position:absolute;opacity:.5}
+.au-l .logo{font-size:26px}.au-l h3{font-size:36px;margin:0 0 14px}.au-l p{color:#b9d1c9;margin:0}.au-l small{color:#7fa194}
+.au-l ul{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}.au-l li{display:flex;gap:12px;align-items:center;color:#dcebe6}
+.au-l li:before{content:"\2713";flex:none;width:24px;height:24px;border-radius:50%;background:var(--mint);color:var(--ink);display:grid;place-items:center;font-size:13px;font-weight:700}
+.au-r{padding:46px 44px calc(36px + env(safe-area-inset-bottom))}
+.au-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#eef2f0;border-radius:99px;padding:4px;margin:0 0 28px;width:calc(100% - 52px)}
+.au-tabs button{border:0;background:transparent;padding:12px;border-radius:99px;font:600 15px 'Instrument Sans',sans-serif;color:var(--m);cursor:pointer;transition:all .2s}
+.au-tabs button[aria-pressed=true]{background:#fff;color:var(--t);box-shadow:0 2px 8px rgba(14,42,37,.14)}
+.fld{margin-bottom:18px}.au-row{display:flex;justify-content:space-between;align-items:baseline}.au-row a{font-size:14px;font-weight:600;color:var(--g)}
+.pwb{position:relative;margin-top:6px}.pwb input{margin-top:0;padding-right:76px}
+.pwb button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;padding:10px;font:600 14px 'Instrument Sans',sans-serif;color:var(--g);cursor:pointer}
+.meter{display:flex;gap:6px;margin-top:12px}.meter i{flex:1;height:5px;border-radius:9px;background:#e1e8e5;transition:background .25s}
+.meter[data-s="1"] i:nth-child(-n+1){background:#d9534f}.meter[data-s="2"] i:nth-child(-n+2){background:#e9a23b}.meter[data-s="3"] i:nth-child(-n+3){background:#7cbf5a}.meter[data-s="4"] i{background:var(--g)}
+#au-hint{display:block;margin-top:6px;color:#6B7F79;font-size:13px}
+.au-note{margin:0 0 20px;padding:12px 14px;border-radius:12px;background:#fff3d6;color:#6b4e00;font-size:15px}.au-note.ok{background:#e6f6ee;color:#0b5e45}
+.au-err{margin:0 0 14px}.au-err:empty{display:none}
+.au-goog{width:100%;padding:14px;border:1px solid #bfd0ca;border-radius:99px;background:#fff;font:600 16px 'Instrument Sans',sans-serif;color:var(--t);cursor:pointer}
+.au-or{display:flex;align-items:center;gap:12px;color:#6B7F79;font-size:13px;margin:18px 0}.au-or:before,.au-or:after{content:"";flex:1;height:1px;background:#d5e0dc}
+.au-c{text-align:center;padding:26px 0 6px}.mail{width:84px;height:84px;margin:0 auto 20px;border-radius:50%;background:#e6f6ee;display:grid;place-items:center;font-size:38px;animation:pop .6s}
+.au-info{margin:0;min-height:22px;font-size:15px;color:var(--g)}.au-info.bad{color:#B3261E}.au-links{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 24px}
+@media(max-width:760px){.au{grid-template-columns:1fr;min-height:0}.au-l{display:none}.au-tabs{width:calc(100% - 52px)}}
+@media(max-width:640px){#au{width:100%}.au-r{padding:26px 18px calc(28px + env(safe-area-inset-bottom))}.au-tabs{width:calc(100% - 56px)}}
+</style></head><body>
+<nav id="nav"><div class="w"><a class="logo" href="#top">Loomie<i>.</i></a>
+<div class="nl"><a class="hm" href="#who">Who we help</a><a class="hm" href="#how">How it works</a><a href="#login" id="nav-login" data-login>Sign in</a><a class="btn o" id="nav-signup" href="#signup" data-login="signup">Sign up</a><a class="btn" href="#book" data-book>Book a chat</a></div></div></nav>
+
+<header class="hero" id="top"><div class="glow"></div><svg class="th" viewBox="0 0 1400 700" preserveAspectRatio="none" aria-hidden="true"><path d="M-50 120 C 250 -20, 500 280, 800 90 S 1150 240, 1500 60"/><path d="M-50 220 C 250 80, 500 380, 800 190 S 1150 340, 1500 160"/><path d="M-50 320 C 250 180, 500 480, 800 290 S 1150 440, 1500 260"/><path d="M-50 420 C 250 280, 500 580, 800 390 S 1150 540, 1500 360"/><path d="M-50 520 C 250 380, 500 680, 800 490 S 1150 640, 1500 460"/><path d="M-50 620 C 250 480, 500 780, 800 590 S 1150 740, 1500 560"/></svg>
+<div class="w"><div>
+<h1>Win back the <em>hours</em> your team loses.</h1>
+<p class="lead">We automate the copying, the repeated emails and the reports, so work that takes hours today takes minutes. Without changing the tools you already use.</p>
+<div class="bt"><a class="btn" href="#book" data-book>Book a 20-minute chat</a><a class="btn o" href="#who">See who we help</a></div></div>
+<div class="pn" aria-hidden="true"><small>Time per task, before and after</small>
+<div class="r"><div><span>Copying data</span><b>3 h &rarr; 5 min</b></div><div class="bar"><i style="--to:4%"></i></div></div>
+<div class="r"><div><span>Answering the same emails</span><b>2 h &rarr; 10 min</b></div><div class="bar"><i style="--to:8%"></i></div></div>
+<div class="r"><div><span>Preparing reports</span><b>2 days &rarr; every morning</b></div><div class="bar"><i style="--to:3%"></i></div></div></div>
+</div></header>
+
+<div class="mq" aria-hidden="true"><div><span>Copying data</span><span>Answering the same emails</span><span>Preparing reports</span><span>Sorting documents</span><span>Chasing approvals</span><span>Updating spreadsheets</span><span>Copying data</span><span>Answering the same emails</span><span>Preparing reports</span><span>Sorting documents</span><span>Chasing approvals</span><span>Updating spreadsheets</span></div></div>
+
+<section class="sec" id="about"><div class="w ab"><div class="rv">
+<p class="eb">About us</p><h2>We’re Loomie.</h2>
+<p>We help small and medium-sized businesses win back the hours their teams lose to repetitive work: copying data, answering the same emails, preparing reports.</p>
+<p>Between us we cover both sides. One of us is an AI engineer with over five years of experience; the other comes from operations management and knows exactly where lost time hides. We turn tasks that take hours into minutes, keep it simple, and work inside the tools you already use.</p>
+<p class="ask">Have twenty minutes to spare? Let’s find the one process that costs your team the most time.</p></div>
+<div class="rv" style="transition-delay:.15s"><div class="fc"><b>5+ years</b><span>AI engineering experience</span></div><div class="fc"><b>Ops</b><span>Operations management, where lost time hides</span></div><div class="fc"><b>Hours &rarr; minutes</b><span>On the tools you already use</span></div></div></div></section>
+
+<section class="sec dk" id="who"><div class="w"><div class="rv"><p class="eb">Who we help</p><h2>Built for the way your business really works.</h2></div>
+<div class="tabs rv"><div class="tl">
+<button aria-pressed="true">Law firms &amp; advisory</button><button aria-pressed="false">Property &amp; accommodation</button><button aria-pressed="false">Logistics &amp; trade</button><button aria-pressed="false">Management &amp; data</button></div>
+<div><div class="tp"><h3>Judgment, not transcription.</h3><p>Your team spends a large part of the day reading, sorting and re-typing data from documents. Our AI agents extract the key information from contracts and case files, structure it and store it in your system, with full traceability and human review at the critical points. Your lawyers get their time back for legal judgment. We start with a pilot on one document type you choose, such as NDAs or engagement letters, so you can measure the real savings before committing to anything.</p></div>
+<div class="tp" hidden><h3>Every unit, at a glance.</h3><p>Running apartments means juggling cleanings, bookings, incidents and supplies, usually across spreadsheets and scattered messages. One of us has optimized work protocols and cut supply costs at an apartment company, so we know this business from the inside. We automate task assignment, team notifications and inventory control, so your staff prepare each unit faster and you see the status of everything at a glance.</p></div>
+<div class="tp" hidden><h3>Less typing, fewer errors.</h3><p>Customs paperwork is meticulous, and one mistake costs money: re-exports, transit, transfers between bonded and regular warehouses. Ivan has managed that flow inside an ERP, and Alek builds the systems that speed it up. Our agents read the documents, check them for inconsistencies, pre-load the data into your ERP and flag exceptions for a person to review. Less typing, fewer errors, faster turnaround.</p></div>
+<div class="tp" hidden><h3>The report arrives every morning.</h3><p>Most companies already have the data, but nobody has the time to turn it into decisions. We build automated pipelines that collect information from your sources, clean it and present it in dashboards with plain-language conclusions. We’ve worked with clients across very different sectors, and we train your team so the tool actually gets used. The report that takes days today arrives every morning without anyone lifting a finger.</p></div></div></div></div></section>
+
+<section class="sec" id="how"><div class="w"><div class="rv"><p class="eb">How it works</p><h2>From one chat to hours saved.</h2></div>
+<div class="steps"><div class="st rv"><b>01</b><h3>A 20-minute chat</h3><p>We identify your most time-consuming process.</p></div>
+<div class="st rv" style="transition-delay:.12s"><b>02</b><h3>A small pilot</h3><p>We measure the real savings before you commit to anything.</p></div>
+<div class="st rv" style="transition-delay:.24s"><b>03</b><h3>Adopted by your team</h3><p>We train your people so the tool sticks, inside the tools you already use.</p></div></div></div></section>
+
+<section class="cta" id="contact"><div class="w rv"><h2>Which process eats most of your week?</h2><p style="color:#d6efe6;font-size:19px;margin:-14px 0 34px">Pick a time that suits you. Twenty minutes, no commitment, no jargon.</p><a class="btn" href="#book" data-book>Book a 20-minute chat</a></div></section>
+
+
+<section class="sec" id="login" style="background:#fff;text-align:center"><div class="w rv"><p class="eb">Client area</p>
+<h2 style="margin:0 auto 16px">Already working with Loomie?</h2>
+<p style="color:var(--m);max-width:520px;margin:0 auto 32px">Sign in to follow your projects, reports and documents, or create your account in under a minute.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a class="btn" style="background:var(--g);color:#fff!important" href="#login" data-login>Sign in</a>
+<a class="btn" style="background:transparent;color:var(--t)!important;border:2px solid var(--t)" href="#signup" data-login="signup">Create account</a></div></div></section>
+<dialog id="au" aria-labelledby="au-h"><div class="au">
+<aside class="au-l"><svg class="th" viewBox="0 0 400 700" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 120 C 120 20, 220 260, 430 140"/><path d="M-20 320 C 140 220, 240 460, 430 340"/><path d="M-20 520 C 120 420, 260 660, 430 540"/></svg>
+<span class="logo">Loomie<i>.</i></span>
+<div><h3>Your client area</h3><p>Everything about your automation projects, in one calm place.</p>
+<ul><li>Follow your projects as they take shape</li><li>Find your reports and documents</li><li>Reach your Loomie team directly</li></ul></div>
+<small>Secure sign-in, powered by Supabase.</small></aside>
+<div class="bk au-r"><button class="bk-x" id="au-x" type="button" aria-label="Close">&times;</button>
+<div class="au-tabs" id="au-tabs"><button type="button" data-v="signin">Sign in</button><button type="button" data-v="signup" id="au-tsu">Create account</button></div>
+<div id="au-form-w"><h2 id="au-h"></h2><p class="bk-sub" id="au-p"></p><p class="au-note" id="au-note" hidden></p>
+<div id="au-gw" hidden><button type="button" class="au-goog" id="au-g">Continue with Google</button><p class="au-or">or use your email</p></div>
+<form id="au-f" novalidate>
+<div class="fld" id="au-em-w"><label for="au-em">Email</label><input id="au-em" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="you@company.com"></div>
+<div class="fld" id="au-pw-w"><div class="au-row"><label for="au-pw">Password</label><a href="#" id="au-fg">Forgot password?</a></div>
+<div class="pwb"><input id="au-pw" type="password" autocomplete="current-password"><button type="button" id="au-eye" aria-pressed="false">Show</button></div>
+<div id="au-mw" hidden><div class="meter" id="au-meter" data-s="0"><i></i><i></i><i></i><i></i></div><small id="au-hint"></small></div></div>
+<p class="bk-e au-err" id="au-err" role="alert"></p><button class="btn full" id="au-go" type="submit">Sign in</button></form>
+<button type="button" class="bk-bk" id="au-back" hidden>&larr; Back to sign in</button></div>
+<div class="au-c" id="au-sent" hidden><div class="mail">&#9993;</div><h2>Check your inbox</h2><p class="bk-sub" id="au-sp"></p>
+<a class="btn" id="au-open" target="_blank" rel="noopener" hidden>Open your inbox</a>
+<p class="bk-sub" style="margin:18px 0 8px;font-size:15px">Nothing there? Check your spam or promotions folder.</p><p class="au-info" id="au-si" role="status"></p>
+<div class="au-links"><button type="button" class="bk-bk" id="au-resend"></button><button type="button" class="bk-bk" id="au-change">Use a different email</button></div></div>
+<div class="au-c" id="au-mem" hidden><div class="tick">&#10003;</div><h2 id="au-mh"></h2><p class="bk-sub" id="au-mp" style="margin-bottom:6px"></p><p class="bk-sub" style="font-size:15px">Project updates and documents will appear here.</p>
+<button class="btn" id="au-book" type="button" data-book>Book a 20-minute chat</button><br><button class="bk-bk" id="au-out" type="button">Sign out</button></div>
+</div></div></dialog>
+<dialog id="bk" aria-labelledby="bk-t"><div class="bk">
+<button class="bk-x" id="bk-x" aria-label="Close" type="button">&times;</button>
+<p class="eb" id="bk-st">Step 1 of 2</p><h2 id="bk-t">Book your 20-minute chat</h2>
+<section id="bk-s1"><p class="bk-sub">Tell us a little about you and your business, so we arrive prepared.</p>
+<form id="bk-f1" class="bk-g" novalidate>
+<label>Full name<input name="name" autocomplete="name"></label><label>Business name<input name="business" autocomplete="organization"></label>
+<label>Your role<input name="job_role" autocomplete="organization-title" placeholder="e.g. Managing partner"></label><label>Work email<input name="email" type="email" autocomplete="email" placeholder="you@company.com"></label>
+<label class="full">Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="+389 70 000 000"></label>
+<p class="bk-e full" id="bk-e1" role="alert"></p><button class="btn full" type="submit">Choose a time</button></form></section>
+<section id="bk-s2" hidden><div class="bk-two"><div>
+<div class="bk-h"><button type="button" id="bk-prev" aria-label="Previous month">&lsaquo;</button><b id="bk-mon"></b><button type="button" id="bk-next" aria-label="Next month">&rsaquo;</button></div>
+<div class="bk-w"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div><div class="bk-d" id="bk-days"></div></div>
+<div><p class="bk-sub" style="margin:0 0 12px"><b>Available times</b> <span id="bk-tz"></span></p><div class="bk-s" id="bk-slots"></div></div></div>
+<p class="bk-pick" id="bk-pick" aria-live="polite"></p><p class="bk-e" id="bk-e2" role="alert"></p>
+<div class="bk-bt"><button type="button" class="bk-bk" id="bk-back">&larr; Back</button><button type="button" class="btn" id="bk-ok" disabled>Confirm booking</button></div></section>
+<section id="bk-s3" class="bk-done" hidden><div class="tick">&#10003;</div><p id="bk-sum" style="font-size:18px;margin:0 0 26px"></p><a class="btn" id="bk-gc" target="_blank" rel="noopener">Add to Google Calendar</a><br><button type="button" class="bk-bk" id="bk-close2">Close</button></section>
+</div></dialog>
+<footer>&copy; Loomie. Automation that gives your team its hours back.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+// 1. Paste your values from Supabase: Project Settings -> API
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+// 2. Options
+const ALLOW_SIGNUP = true;    // false = invite-only (hides "Create account")
+const ENABLE_GOOGLE = false;  // true only after enabling Google in Supabase -> Authentication -> Providers
+const _h = new URLSearchParams(location.hash.slice(1));
+const LINK = { err: _h.get("error_code"), type: _h.get("type") }; // read before Supabase cleans the URL
+const configured = !SUPABASE_URL.startsWith("YOUR_");
+const sb = configured ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+(() => {
+const $ = id => document.getElementById(id), dlg = $("au"), EMAIL = /^\S+@\S+\.\S+$/, redirect = location.origin + location.pathname;
+let view = "signin", ctx = {}, busy = false, cd, user = null, greet = "You’re signed in", shown = false;
+const T = {
+  signin: ["Welcome back", "Sign in to your client area.", "Sign in"],
+  signup: ["Create your account", "Set up your Loomie account in under a minute.", "Create account"],
+  forgot: ["Reset your password", "Enter your email and we’ll send you a reset link.", "Send reset link"],
+  recover: ["Choose a new password", "Pick something you haven’t used before.", "Save new password"]
+};
+const note = (t, k) => { const n = $("au-note"); n.hidden = !t; n.textContent = t || ""; n.className = "au-note " + (k || ""); };
+const err = t => { $("au-err").textContent = t || ""; };
+function score(p) { if (!p) return 0; if (p.length < 8) return 1; let s = 2; if (p.length >= 12) s++; if (/[a-z]/.test(p) && /[A-Z]/.test(p) && /[\d\W]/.test(p)) s++; return s; }
+function meter() { const s = score($("au-pw").value); $("au-meter").dataset.s = s;
+  $("au-hint").textContent = ["Use at least 8 characters. A few words together work well.", "Too short. Use at least 8 characters.", "Okay. Longer is stronger.", "Good password.", "Strong password."][s]; }
+function msg(x) { console.error("Loomie auth:", x); const m = ((x && x.message) || "").toLowerCase(), st = x && x.status;
+  if (st === 429 || m.includes("rate limit")) return "We’ve sent several emails recently. For security, please wait a little while and try again.";
+  if (m.includes("invalid login")) return "That email and password don’t match. Check them, or reset your password.";
+  if (m.includes("already registered")) return "An account with this email already exists. Try signing in instead.";
+  if (m.includes("signups not allowed") || m.includes("signup is disabled")) return "New accounts are by invitation only. Please get in touch with us.";
+  if (m.includes("fetch") || m.includes("network")) return "We can’t reach the server. Check your connection and try again.";
+  if (m.includes("same password")) return "Please choose a password you haven’t used before.";
+  return ((x && x.message) || "Something went wrong.") + " Please try again."; }
+function show(v) { view = v; err("");
+  const f = ["signin", "signup", "forgot", "recover"].includes(v);
+  $("au-form-w").hidden = !f; $("au-sent").hidden = v !== "sent"; $("au-mem").hidden = v !== "member";
+  $("au-tabs").hidden = !(ALLOW_SIGNUP && (v === "signin" || v === "signup"));
+  document.querySelectorAll("#au-tabs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  if (f) { const t = T[v]; $("au-h").textContent = t[0]; $("au-p").textContent = t[1]; $("au-go").textContent = t[2];
+    $("au-em-w").hidden = v === "recover"; $("au-pw-w").hidden = v === "forgot"; $("au-fg").hidden = v !== "signin";
+    $("au-mw").hidden = !(v === "signup" || v === "recover"); $("au-back").hidden = !(v === "forgot" || v === "recover");
+    $("au-gw").hidden = !(ENABLE_GOOGLE && (v === "signin" || v === "signup"));
+    $("au-pw").autocomplete = v === "signin" ? "current-password" : "new-password";
+    $("au-pw").type = "password"; $("au-eye").textContent = "Show"; meter();
+    setTimeout(() => { const i = [...dlg.querySelectorAll("#au-f input")].find(x => x.offsetParent); if (i && dlg.open) i.focus(); }, 80); }
+  if (v === "member") { $("au-mh").textContent = greet; $("au-mp").textContent = user ? "Signed in as " + user.email : ""; } }
+function openAu(v) { if (user && (v === "signin" || v === "signup")) v = "member"; note(sb ? "" : "Sign-in isn’t connected yet. Add your Supabase URL and key near the bottom of the page.");
+  show(v); if (!dlg.open) dlg.showModal(); }
+function cooldown(n) { clearInterval(cd); const b = $("au-resend");
+  const tick = () => { b.textContent = n > 0 ? "Resend email in " + n + "s" : "Resend email"; b.disabled = n > 0; if (n-- <= 0) clearInterval(cd); }; tick(); cd = setInterval(tick, 1000); }
+function sent(email, kind, extra) { ctx = { email, kind }; show("sent"); $("au-si").textContent = "";
+  $("au-sp").textContent = (extra ? extra + " " : "") + "We sent a " + (kind === "signup" ? "confirmation" : "password reset") + " link to " + email + ". It can take a minute to arrive.";
+  const O = ["Open Outlook", "https://outlook.live.com/mail"], M = { "gmail.com": ["Open Gmail", "https://mail.google.com"], "googlemail.com": ["Open Gmail", "https://mail.google.com"], "outlook.com": O, "hotmail.com": O, "live.com": O, "yahoo.com": ["Open Yahoo Mail", "https://mail.yahoo.com"], "icloud.com": ["Open iCloud Mail", "https://www.icloud.com/mail"] };
+  const m = M[email.split("@")[1].toLowerCase()], a = $("au-open"); a.hidden = !m; if (m) { a.textContent = m[0]; a.href = m[1]; } cooldown(60); }
+function setBusy(b) { busy = b; const g = $("au-go"); g.disabled = b; if (b) { g.dataset.t = g.textContent; g.textContent = "Please wait..."; } else g.textContent = T[view] ? T[view][2] : g.dataset.t; }
+function render(session) { user = (session && session.user) || null; window.loomieUser = user; $("nav-login").textContent = user ? "My account" : "Sign in"; $("nav-signup").hidden = !!user; }
+
+$("au-f").addEventListener("submit", async e => { e.preventDefault(); if (busy) return;
+  const email = $("au-em").value.trim(), pw = $("au-pw").value;
+  if (view !== "recover" && !EMAIL.test(email)) return err("Please enter a valid email address.");
+  if (view !== "forgot" && !pw) return err(view === "signin" ? "Please enter your password." : "Please choose a password.");
+  if ((view === "signup" || view === "recover") && pw.length < 8) return err("Your password needs at least 8 characters.");
+  if (!sb) return err("Sign-in isn’t connected yet. Add your Supabase URL and key to the page.");
+  setBusy(true);
+  try {
+    if (view === "signin") { greet = "Welcome back!";
+      const { error } = await sb.auth.signInWithPassword({ email, password: pw });
+      if (error) { if (/not confirmed/i.test(error.message)) { const r = await sb.auth.resend({ type: "signup", email, options: { emailRedirectTo: redirect } });
+          if (!r.error) { sent(email, "signup", "Your email isn’t confirmed yet, so we’ve sent you a fresh link."); return; } }
+        throw error; } }
+    else if (view === "signup") { greet = "Welcome to Loomie!";
+      const { data, error } = await sb.auth.signUp({ email, password: pw, options: { emailRedirectTo: redirect } }); if (error) throw error;
+      if (data.user && data.user.identities && !data.user.identities.length) return err("An account with this email already exists. Try signing in, or reset your password.");
+      if (!data.session) sent(email, "signup"); }
+    else if (view === "forgot") { const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: redirect }); if (error) throw error; sent(email, "reset"); }
+    else { const { error } = await sb.auth.updateUser({ password: pw }); if (error) throw error; greet = "Password updated. You’re all set."; LINK.type = null; show("member"); }
+  } catch (x) { err(msg(x)); } finally { setBusy(false); } });
+
+$("au-resend").onclick = async () => { const { email, kind } = ctx, i = $("au-si"); i.className = "au-info"; i.textContent = "Sending...";
+  const r = kind === "signup" ? await sb.auth.resend({ type: "signup", email, options: { emailRedirectTo: redirect } }) : await sb.auth.resetPasswordForEmail(email, { redirectTo: redirect });
+  if (r.error) { i.className = "au-info bad"; i.textContent = msg(r.error); } else { i.textContent = "Sent again. Please check your inbox."; cooldown(60); } };
+$("au-change").onclick = () => show(ctx.kind === "signup" ? "signup" : "forgot");
+$("au-out").onclick = async () => { if (sb) await sb.auth.signOut(); dlg.close(); };
+$("au-book").addEventListener("click", () => dlg.close());
+$("au-g").onclick = () => sb && sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirect } });
+document.querySelectorAll("[data-login]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); openAu(a.dataset.login === "signup" ? "signup" : "signin"); }));
+document.querySelectorAll("#au-tabs button").forEach(b => b.onclick = () => show(b.dataset.v));
+$("au-fg").onclick = e => { e.preventDefault(); show("forgot"); }; $("au-back").onclick = () => show("signin");
+$("au-x").onclick = () => dlg.close(); dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("au-eye").onclick = () => { const p = $("au-pw"), on = p.type === "password"; p.type = on ? "text" : "password"; $("au-eye").textContent = on ? "Hide" : "Show"; $("au-eye").setAttribute("aria-pressed", on); };
+$("au-pw").addEventListener("input", () => { meter(); err(""); }); $("au-em").addEventListener("input", () => err(""));
+$("au-em").addEventListener("blur", () => { const v = $("au-em").value.trim(); if (v && !EMAIL.test(v)) err("That email doesn’t look right. Check for typos."); });
+
+if (sb) {
+  sb.auth.onAuthStateChange((ev, s) => { render(s);
+    if (ev === "PASSWORD_RECOVERY") { openAu("recover"); }
+    else if (ev === "SIGNED_IN" && LINK.type && LINK.type !== "recovery" && !shown) { shown = true; greet = "Email confirmed. Welcome to Loomie!"; openAu("member"); }
+    else if (ev === "SIGNED_IN" && dlg.open && view !== "recover") show("member");
+    else if (ev === "SIGNED_OUT" && dlg.open) show("signin"); });
+  sb.auth.getSession().then(({ data }) => render(data.session));
+}
+if (LINK.err) { openAu("signin"); note("That link has expired or was already used. Sign in and we’ll send a fresh one, or reset your password.", "warn"); }
+})();
+</script>
+<script>
+const nav=document.getElementById("nav"),hero=document.querySelector(".hero");
+addEventListener("scroll",()=>nav.classList.toggle("s",scrollY>40),{passive:true});
+hero.addEventListener("mousemove",e=>{const r=hero.getBoundingClientRect();hero.style.setProperty("--x",(e.clientX-r.left)+"px");hero.style.setProperty("--y",(e.clientY-r.top)+"px")});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+const tb=[...document.querySelectorAll(".tl button")],tp=[...document.querySelectorAll(".tp")];
+tb.forEach((b,i)=>b.addEventListener("click",()=>tb.forEach((x,j)=>{x.setAttribute("aria-pressed",j===i);tp[j].hidden=j!==i})));
+</script>
+<script>(()=>{
+const TZ="Europe/Skopje",TZN="Skopje",OPEN=9,CLOSE=17,AHEAD=60,LEAD=2; // business hours 09:00-17:00, weekdays, 60 days ahead, 2h notice
+const $=id=>document.getElementById(id),dlg=$("bk"),pad=n=>String(n).padStart(2,"0");
+const F=new Intl.DateTimeFormat("en-GB",{weekday:"long",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:TZ});
+let step=1,view,sel,slot,taken=new Set(),timer,busy=false;
+function parts(ts){const o={};new Intl.DateTimeFormat("en-US",{timeZone:TZ,hourCycle:"h23",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric",second:"numeric"}).formatToParts(new Date(ts)).forEach(p=>o[p.type]=+p.value);return o}
+const wallMs=o=>Date.UTC(o.year,o.month-1,o.day,o.hour,o.minute,o.second);
+function zoned(y,m,d,h,mi){const g=Date.UTC(y,m,d,h,mi),off=wallMs(parts(g))-g;let t=g-off;const off2=wallMs(parts(t))-t;if(off2!==off)t=g-off2;return t}
+const today=()=>{const o=parts(Date.now());return{y:o.year,m:o.month-1,d:o.day}};
+const dayNum=(y,m,d)=>Date.UTC(y,m,d)/864e5;
+function slotsOf(y,m,d){const r=[];for(let h=OPEN;h<CLOSE;h++)for(const mi of[0,30]){const t=zoned(y,m,d,h,mi);r.push({t,l:pad(h)+":"+pad(mi),ok:t>Date.now()+LEAD*36e5&&!taken.has(t)})}return r}
+function dayState(y,m,d){const t=today(),n=dayNum(y,m,d)-dayNum(t.y,t.m,t.d),wd=new Date(Date.UTC(y,m,d)).getUTCDay();if(n<0||n>AHEAD||wd===0||wd===6)return"off";return slotsOf(y,m,d).some(s=>s.ok)?"ok":"full"}
+function autoPick(){const t=today();for(let i=0;i<=AHEAD;i++){const x=new Date(Date.UTC(t.y,t.m,t.d+i)),y=x.getUTCFullYear(),m=x.getUTCMonth(),d=x.getUTCDate();if(dayState(y,m,d)==="ok"){sel={y,m,d};view={y,m};return}}view={y:t.y,m:t.m}}
+function drawCal(){const{y,m}=view,t=today(),e=parts(Date.now()+AHEAD*864e5);
+$("bk-mon").textContent=new Intl.DateTimeFormat("en-GB",{month:"long",year:"numeric",timeZone:"UTC"}).format(Date.UTC(y,m,1));
+$("bk-prev").disabled=y*12+m<=t.y*12+t.m;$("bk-next").disabled=y*12+m>=e.year*12+e.month-1;
+const first=(new Date(Date.UTC(y,m,1)).getUTCDay()+6)%7,len=new Date(Date.UTC(y,m+1,0)).getUTCDate();let h="";
+for(let i=0;i<first;i++)h+="<i></i>";
+for(let d=1;d<=len;d++){const s=dayState(y,m,d),on=sel&&sel.y===y&&sel.m===m&&sel.d===d;h+=`<button type="button" class="${s}${on?" on":""}" data-d="${d}" ${s==="ok"?"":"disabled"}${s==="full"?' title="Fully booked"':""}>${d}</button>`}
+$("bk-days").innerHTML=h}
+function drawSlots(){const b=$("bk-slots");if(!sel){b.innerHTML='<p class="hint">Choose a day to see available times.</p>';return}
+b.innerHTML=slotsOf(sel.y,sel.m,sel.d).map(s=>`<button type="button" class="${s.ok?"":"x"}${slot===s.t?" on":""}" data-t="${s.t}" ${s.ok?"":'disabled title="Already booked"'}>${s.l}</button>`).join("")}
+function redraw(){drawCal();drawSlots();$("bk-pick").textContent=slot?F.format(slot)+" ("+TZN+" time)":"Select a time to continue.";const b=$("bk-ok");b.disabled=!slot||busy;b.textContent=busy?"Reserving...":"Confirm booking"}
+async function load(){if(!configured||!sb)return;const{data,error}=await sb.rpc("get_taken_slots",{from_ts:new Date().toISOString(),to_ts:new Date(Date.now()+(AHEAD+2)*864e5).toISOString()});
+if(error||!data)return;taken=new Set(data.map(r=>new Date(r.slot_start).getTime()));if(slot&&taken.has(slot))slot=null;if(step===2)redraw()}
+function setStep(n){step=n;[1,2,3].forEach(i=>$("bk-s"+i).hidden=i!==n);$("bk-st").textContent=n===3?"All set":"Step "+n+" of 2";
+$("bk-t").textContent=n===1?"Book your 20-minute chat":n===2?"Pick a day and time":"You’re booked!";
+if(n===2){if(!sel)autoPick();$("bk-tz").textContent="· "+TZN+" time";redraw();load()}dlg.scrollTop=0}
+function openBk(){const u=window.loomieUser;if(u&&!$("bk-f1").email.value)$("bk-f1").email.value=u.email;sel=null;slot=null;$("bk-e1").textContent="";$("bk-e2").textContent="";setStep(1);if(!dlg.open)dlg.showModal();load();clearInterval(timer);timer=setInterval(()=>{if(step===2)load()},20000)}
+document.querySelectorAll("[data-book]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openBk()}));
+dlg.addEventListener("close",()=>clearInterval(timer));dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+$("bk-x").onclick=$("bk-close2").onclick=()=>dlg.close();$("bk-back").onclick=()=>setStep(1);
+$("bk-prev").onclick=()=>{view=view.m?{y:view.y,m:view.m-1}:{y:view.y-1,m:11};drawCal()};
+$("bk-next").onclick=()=>{view=view.m<11?{y:view.y,m:view.m+1}:{y:view.y+1,m:0};drawCal()};
+$("bk-days").addEventListener("click",e=>{const b=e.target.closest("button[data-d]");if(!b||b.disabled)return;sel={y:view.y,m:view.m,d:+b.dataset.d};slot=null;redraw();load();$("bk-slots").scrollIntoView({behavior:"smooth",block:"nearest"})});
+$("bk-slots").addEventListener("click",e=>{const b=e.target.closest("button[data-t]");if(!b||b.disabled)return;slot=+b.dataset.t;redraw()});
+$("bk-f1").addEventListener("submit",e=>{e.preventDefault();const f=e.target,v=n=>f[n].value.trim(),er=$("bk-e1");
+if(v("name").length<2)return er.textContent="Please enter your full name.";
+if(!v("business"))return er.textContent="Please enter your business name.";
+if(!v("job_role"))return er.textContent="Please enter your role.";
+if(!/^\S+@\S+\.\S+$/.test(v("email")))return er.textContent="Please enter a valid email address.";
+if(!/^[+()\d\s-]{6,25}$/.test(v("phone"))||v("phone").replace(/\D/g,"").length<6)return er.textContent="Please enter a valid phone number.";
+er.textContent="";setStep(2)});
+$("bk-ok").addEventListener("click",async()=>{if(!slot||busy)return;const er=$("bk-e2");er.textContent="";
+if(!configured||!sb)return er.textContent="Booking isn’t connected yet. Add your Supabase details to the page.";
+const f=$("bk-f1"),v=n=>f[n].value.trim(),t=slot;busy=true;redraw();
+const{error}=await sb.from("bookings").insert({slot_start:new Date(t).toISOString(),name:v("name"),business:v("business"),job_role:v("job_role"),email:v("email"),phone:v("phone")});
+busy=false;
+if(error){er.textContent=error.code==="23505"?"Sorry, someone just booked that time. Please pick another one.":"Something went wrong. Please try again.";if(error.code==="23505"){taken.add(t);slot=null}redraw();return}
+taken.add(t);const iso=x=>new Date(x).toISOString().replace(/[-:]|\.\d{3}/g,"");
+$("bk-sum").textContent=F.format(t)+" ("+TZN+" time). We’ll email "+v("email")+" with the meeting details.";
+$("bk-gc").href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("20-minute chat with Loomie")+"&dates="+iso(t)+"/"+iso(t+20*6e4);
+f.reset();slot=null;setStep(3)});
+})();</script></body></html>
